@@ -9,8 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script>
-  const form = document.querySelector('form');
-  const input = document.querySelector('input[type="url"]');
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('summarize-form');
+  const input = form.querySelector('input[type="url"]');
   const summaryOutput = document.getElementById('summary-output');
   const summaryContent = document.getElementById('summary-content');
   const summarizeButton = form.querySelector('button');
@@ -58,6 +59,7 @@
       summarizeButton.innerHTML = 'Summarize';
     }
   });
+});
 </script>
 <script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#EA2831", "background-light": "#f8f6f6", "background-dark": "#211111"}, fontFamily: {display: "Space Grotesk"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
@@ -123,7 +125,7 @@ link
 <div class="mt-8 text-sm text-gray-400">
 Or paste a direct URL:
 </div>
-<form class="relative mt-4">
+<form id="summarize-form" class="relative mt-4">
 <div class="relative flex items-center shadow-lg rounded-lg">
 <span class="material-symbols-outlined absolute left-4 text-gray-400">
 link
