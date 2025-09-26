@@ -1,3 +1,5 @@
+# backend/main.py
+
 import os
 import re
 from fastapi import FastAPI, HTTPException, Request
@@ -11,7 +13,7 @@ from youtube_transcript_api import YouTubeTranscriptApi, NoTranscriptFound
 # --- Configuration ---
 # It's critical to use environment variables for security.
 # In your terminal: export GEMINI_API_KEY="YOUR_API_KEY"
-GEMINI_API_KEY = os.getenv("AIzaSyB7f8NlYtpzKUCOw7z5Xgt4nFWcs5MRoLQ")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") # <--- แก้ไขบรรทัดนี้
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY environment variable not set.")
 
