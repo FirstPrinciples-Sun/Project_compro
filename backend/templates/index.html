@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เครื่องมือสรุปข้อความด้วย AI</title>
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+        }
+        textarea {
+            width: 98%;
+            height: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .button-container {
+            text-align: center;
+        }
+        button {
+            background-color: #5c67f2;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-family: 'Sarabun', sans-serif; /* เพิ่ม font-family */
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #4a54e1;
+        }
+        .results {
+            margin-top: 30px;
+        }
+        .result-box {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            white-space: pre-wrap; /* للحفاظ على تنسيق النص */
+        }
+        h2 {
+            color: #4a4a4a;
+            border-bottom: 2px solid #5c67f2;
+            padding-bottom: 5px;
+        }
+    </style>
+    <!-- เพิ่ม Google Fonts สำหรับฟอนต์ภาษาไทย -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>เครื่องมือสรุปข้อความด้วย AI (Gemini)</h1>
+        <form action="/summarize" method="POST">
+            <label for="text_to_summarize">วางข้อความที่ต้องการสรุปที่นี่:</label><br>
+            <textarea id="text_to_summarize" name="text_to_summarize" required>{{ original_text or '' }}</textarea>
+            <div class="button-container">
+                <button type="submit">สรุปข้อความ</button>
+            </div>
+        </form>
+
+        {% if summary %}
+        <div class="results">
+            <h2>บทสรุปจาก AI:</h2>
+            <div class="result-box">
+                <p>{{ summary }}</p>
+            </div>
+
+            <h2>ข้อความต้นฉบับ:</h2>
+            <div class="result-box">
+                <p>{{ original_text }}</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
